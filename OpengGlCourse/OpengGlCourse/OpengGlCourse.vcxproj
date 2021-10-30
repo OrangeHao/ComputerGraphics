@@ -129,6 +129,24 @@
   <ItemGroup>
     <ClCompile Include="..\opengl\src\glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="tools\stb_image.cpp" />
+    <ClCompile Include="tools\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="course\colorfultriangle.h" />
+    <ClInclude Include="course\emptywindow.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="tools\Shader.h" />
+    <ClInclude Include="course\triangle.h" />
+    <ClInclude Include="tools\stb_image.h" />
+    <ClInclude Include="tools\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OpengGlCourse.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\color_triangle.fs" />
+    <None Include="shader\color_triangle.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

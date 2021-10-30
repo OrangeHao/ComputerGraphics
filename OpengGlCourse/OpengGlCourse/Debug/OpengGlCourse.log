@@ -1,3 +1,8 @@
 ﻿  glad.c
   main.cpp
+e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\course\triangle.h(207): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\tools\shader.h(43): warning C4101: “e”: 未引用的局部变量
+  stb_image.cpp
+  utils.cpp
+  正在生成代码...
   OpengGlCourse.vcxproj -> E:\OpenGl\Projects\ComputerGraphics\OpengGlCourse\Debug\OpengGlCourse.exe
