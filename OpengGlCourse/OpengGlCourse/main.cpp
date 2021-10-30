@@ -3,6 +3,7 @@
 #include "course/emptywindow.h"
 #include "course/triangle.h"
 #include "course/colorfultriangle.h"
+#include "course/textures.h"
 
 #include <iostream>
 using namespace std;
@@ -15,6 +16,9 @@ int main() {
 	/*Triangle triangle;
 	return triangle.show();*/
 
-	TriangleColor triangle;
-	return triangle.show();
+	/*TriangleColor triangle;
+	return triangle.show();*/
+
+	MyTextures texture;
+	texture.show();
 }

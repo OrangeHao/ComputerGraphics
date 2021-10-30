@@ -7,6 +7,7 @@
 using namespace std;
 
 
+/*课程：着色器，彩色三角形*/
 
 class TriangleColor
 {
@@ -82,7 +83,7 @@ int TriangleColor::show()
 	// build and compile our shader program
 	// ------------------------------------
 	// vertex shader
-	Shader ourShader("shader\\color_triangle.vs", "shader\\color_triangle.fs");
+	Shader ourShader("shader/color_triangle.vs", "shader/color_triangle.fs");
 
 
 

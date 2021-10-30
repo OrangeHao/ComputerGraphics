@@ -53,6 +53,9 @@
     <ClInclude Include="tools\stb_image.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="course\textures.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpengGlCourse.rc">
@@ -62,5 +65,21 @@
   <ItemGroup>
     <None Include="shader\color_triangle.fs" />
     <None Include="shader\color_triangle.vs" />
+    <None Include="shader\texture.vs" />
+    <None Include="shader\texture.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\texture.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resource\face.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resource\awesomeface.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="resource\container.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

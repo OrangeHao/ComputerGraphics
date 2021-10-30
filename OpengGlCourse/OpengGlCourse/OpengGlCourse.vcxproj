@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="course\colorfultriangle.h" />
     <ClInclude Include="course\emptywindow.h" />
+    <ClInclude Include="course\textures.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="tools\Shader.h" />
     <ClInclude Include="course\triangle.h" />
@@ -147,6 +148,14 @@
   <ItemGroup>
     <None Include="shader\color_triangle.fs" />
     <None Include="shader\color_triangle.vs" />
+    <None Include="shader\texture.fs" />
+    <None Include="shader\texture.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\awesomeface.png" />
+    <Image Include="resource\container.jpg" />
+    <Image Include="resource\face.jpg" />
+    <Image Include="resource\texture.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
