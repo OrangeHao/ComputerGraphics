@@ -4,6 +4,8 @@
 #include "../tools/Shader.h"
 #include <iostream>
 
+#include <glm/glm.hpp>
+
 using namespace std;
 
 
@@ -44,6 +46,7 @@ public:
 			std::cout << "Failed to initialize GLAD" << std::endl;
 			return -1;
 		}
+
 
 		// build and compile our shader zprogram
 		// ------------------------------------
@@ -93,37 +96,46 @@ public:
 		// ---------
 		glGenTextures(1, &texture1);
 		glBindTexture(GL_TEXTURE_2D, texture1);
-		// set the texture wrapping parameters
+		//为当前绑定的纹理对象设置环绕、过滤方式
+		//glTexParameter*函数对单独的一个坐标轴设置（s、t（如果是使用3D纹理那么还有一个r）它们和x、y、z是等价的.
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		// set texture filtering parameters
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		//放大(Magnify)和缩小(Minify)操作的时候可以设置纹理过滤的选项
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		// load image, create texture and generate mipmaps
 		int width, height, nrChannels;
 		stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
-		// The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
 		unsigned char *data = stbi_load("resource/container.jpg", &width, &height, &nrChannels, 0);
 		if (data)
 		{
+		  /*第一个参数指定了纹理目标(Target)。设置为GL_TEXTURE_2D意味着会生成与当前绑定的纹理对象在同一个目标上的纹理（任何绑定到GL_TEXTURE_1D和GL_TEXTURE_3D的纹理不会受到影响）。
+			第二个参数为纹理指定多级渐远纹理的级别，如果你希望单独手动设置每个多级渐远纹理的级别的话。这里我们填0，也就是基本级别。
+			第三个参数告诉OpenGL我们希望把纹理储存为何种格式。我们的图像只有RGB值，因此我们也把纹理储存为RGB值。
+			第四个和第五个参数设置最终的纹理的宽度和高度。我们之前加载图像的时候储存了它们，所以我们使用对应的变量。
+			下个参数应该总是被设为0（历史遗留的问题）。
+			第七第八个参数定义了源图的格式和数据类型。我们使用RGB值加载这个图像，并把它们储存为char(byte)数组，我们将会传入对应值。
+			最后一个参数是真正的图像数据。*/
+			//当调用glTexImage2D时，当前绑定的纹理对象就会被附加上纹理图像。
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			//在生成纹理之后调用glGenerateMipmap,这会为当前绑定的纹理自动生成所有需要的多级渐远纹理。
 			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		else
 		{
 			std::cout << "Failed to load texture" << std::endl;
 		}
+		//生成了纹理和相应的多级渐远纹理后，释放图像的内存
 		stbi_image_free(data);
-		// texture 2
-		// ---------
+
+		//生成和绑定纹理
 		glGenTextures(1, &texture2);
 		glBindTexture(GL_TEXTURE_2D, texture2);
-		// set the texture wrapping parameters
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		// set texture filtering parameters
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 		// load image, create texture and generate mipmaps
 		data = stbi_load("resource/awesomeface.png", &width, &height, &nrChannels, 0);
 		if (data)
@@ -138,10 +150,11 @@ public:
 		}
 		stbi_image_free(data);
 
-		// tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
-		// -------------------------------------------------------------------------------------------
+
+
 		ourShader.use(); // don't forget to activate/use the shader before setting uniforms!
 		// either set it manually like so:
+		//使用glUniform1i设置每个采样器的方式告诉OpenGL每个着色器采样器属于哪个纹理单元
 		glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
 		// or set it via the texture class
 		ourShader.setInt("texture2", 1);
