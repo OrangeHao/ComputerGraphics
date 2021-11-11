@@ -136,6 +136,7 @@
     <ClInclude Include="course\colorfultriangle.h" />
     <ClInclude Include="course\emptywindow.h" />
     <ClInclude Include="course\textures.h" />
+    <ClInclude Include="course\coordinate_systems.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="tools\Shader.h" />
     <ClInclude Include="course\triangle.h" />
@@ -148,6 +149,8 @@
   <ItemGroup>
     <None Include="shader\color_triangle.fs" />
     <None Include="shader\color_triangle.vs" />
+    <None Include="shader\coordinate_systems.fs" />
+    <None Include="shader\coordinate_systems.vs" />
     <None Include="shader\texture.fs" />
     <None Include="shader\texture.vs" />
   </ItemGroup>
