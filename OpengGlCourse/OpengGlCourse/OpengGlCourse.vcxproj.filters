@@ -59,6 +59,9 @@
     <ClInclude Include="course\coordinate_systems.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="course\camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpengGlCourse.rc">
@@ -72,6 +75,8 @@
     <None Include="shader\texture.fs" />
     <None Include="shader\coordinate_systems.vs" />
     <None Include="shader\coordinate_systems.fs" />
+    <None Include="shader\camera.vs" />
+    <None Include="shader\camera.fs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\texture.jpg">

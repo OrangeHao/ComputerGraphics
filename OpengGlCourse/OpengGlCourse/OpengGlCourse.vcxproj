@@ -133,6 +133,7 @@
     <ClCompile Include="tools\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="course\camera.h" />
     <ClInclude Include="course\colorfultriangle.h" />
     <ClInclude Include="course\emptywindow.h" />
     <ClInclude Include="course\textures.h" />
@@ -147,6 +148,8 @@
     <ResourceCompile Include="OpengGlCourse.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shader\camera.fs" />
+    <None Include="shader\camera.vs" />
     <None Include="shader\color_triangle.fs" />
     <None Include="shader\color_triangle.vs" />
     <None Include="shader\coordinate_systems.fs" />

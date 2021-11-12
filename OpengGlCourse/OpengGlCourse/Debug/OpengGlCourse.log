@@ -1,4 +1,6 @@
 ﻿  main.cpp
 e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\course\triangle.h(203): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
 e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\tools\shader.h(47): warning C4101: “e”: 未引用的局部变量
+e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\course\camera.h(223): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\opengl\projects\computergraphics\opengglcourse\opengglcourse\course\camera.h(224): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   OpengGlCourse.vcxproj -> E:\OpenGl\Projects\ComputerGraphics\OpengGlCourse\Debug\OpengGlCourse.exe
