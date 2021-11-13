@@ -139,6 +139,7 @@
     <ClInclude Include="course\textures.h" />
     <ClInclude Include="course\coordinate_systems.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="tools\camera.h" />
     <ClInclude Include="tools\Shader.h" />
     <ClInclude Include="course\triangle.h" />
     <ClInclude Include="tools\stb_image.h" />

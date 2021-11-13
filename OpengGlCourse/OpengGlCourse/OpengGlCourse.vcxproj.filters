@@ -62,6 +62,9 @@
     <ClInclude Include="course\camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="tools\camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpengGlCourse.rc">
