@@ -133,6 +133,7 @@
     <ClCompile Include="tools\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="course\21color.h" />
     <ClInclude Include="course\camera.h" />
     <ClInclude Include="course\colorfultriangle.h" />
     <ClInclude Include="course\emptywindow.h" />
@@ -149,6 +150,10 @@
     <ResourceCompile Include="OpengGlCourse.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="shader\21_color.fs" />
+    <None Include="shader\21_color.vs" />
+    <None Include="shader\21_light_cube.fs" />
+    <None Include="shader\21_light_cube.vs" />
     <None Include="shader\camera.fs" />
     <None Include="shader\camera.vs" />
     <None Include="shader\color_triangle.fs" />
@@ -161,6 +166,8 @@
   <ItemGroup>
     <Image Include="resource\awesomeface.png" />
     <Image Include="resource\container.jpg" />
+    <Image Include="resource\container2.png" />
+    <Image Include="resource\container2_specular.png" />
     <Image Include="resource\face.jpg" />
     <Image Include="resource\texture.jpg" />
     <Image Include="resource\wrapping.png" />

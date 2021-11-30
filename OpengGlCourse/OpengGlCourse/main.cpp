@@ -6,6 +6,7 @@
 #include "course/textures.h"
 #include "course/coordinate_systems.h"
 #include "course/camera.h"
+#include "course/21color.h"
 
 #include <iostream>
 using namespace std;
@@ -27,6 +28,9 @@ int main() {
 	/*MyCoordinate cs;
 	return cs.show();*/
 
-	MyCamera cs;
+	/*MyCamera cs;
+	return cs.show();*/
+
+	MyColor cs;
 	return cs.show();
 }
